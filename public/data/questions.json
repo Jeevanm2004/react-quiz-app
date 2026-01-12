@@ -1,0 +1,28 @@
+{
+  "questions": [
+    {
+      "question": "What is React?",
+      "options": ["Library", "Framework", "Language", "Database"],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "Which hook is used for side effects?",
+      "options": ["useState", "useEffect", "useReducer", "useRef"],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "What is JSX?",
+      "options": [
+        "JavaScript XML",
+        "JSON format",
+        "CSS preprocessor",
+        "Database query language"
+      ],
+      "correctOption": 0,
+      "points": 10
+    }
+  ]
+}
+
