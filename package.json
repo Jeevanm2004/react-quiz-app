@@ -1,6 +1,6 @@
 {
-  "homepage": "https://VINAYAK9669.github.io/React-QuizApp",
-  "name": "faraway",
+  "homepage": "https://jeevanm2004.github.io/react-quiz-app",
+  "name": "react-quiz-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,10 +14,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "json-server --watch data/questions.json --port 9000"
@@ -41,6 +41,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.0.0"
+    "gh-pages": "^6.3.0"
   }
 }
+

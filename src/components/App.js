@@ -15,11 +15,9 @@ import "../index.css";
 
 const SECS_PER_QUESTION = 5;
 
-// We need to define the intialState in order to use useReduce Hook.
 const initialState = {
   questions: [],
-  // 'loading', 'error', 'ready', 'active', 'finished'
-  status: "loading",
+  status: "loading", // 'loading', 'error', 'ready', 'active', 'finished'
   index: 0,
   answer: null,
   points: 0,
@@ -35,20 +33,22 @@ function reducer(state, action) {
         questions: action.payload,
         status: "ready",
       };
+
     case "dataFailed":
       return {
         ...state,
         status: "error",
       };
+
     case "start":
       return {
         ...state,
         status: "active",
         secondsRemaining: state.questions.length * SECS_PER_QUESTION,
       };
-    case "newAnswer":
-      const question = state.questions.at(state.index);
 
+    case "newAnswer": {
+      const question = state.questions.at(state.index);
       return {
         ...state,
         answer: action.payload,
@@ -57,8 +57,11 @@ function reducer(state, action) {
             ? state.points + question.points
             : state.points,
       };
+    }
+
     case "nextQuestion":
       return { ...state, index: state.index + 1, answer: null };
+
     case "finish":
       return {
         ...state,
@@ -66,6 +69,7 @@ function reducer(state, action) {
         highscore:
           state.points > state.highscore ? state.points : state.highscore,
       };
+
     case "restart":
       return { ...initialState, questions: state.questions, status: "ready" };
 
@@ -73,17 +77,11 @@ function reducer(state, action) {
       return {
         ...state,
         secondsRemaining: state.secondsRemaining - 1,
-        highscore:
-          state.secondsRemaining === 0
-            ? state.points > state.highscore
-              ? state.points
-              : state.highscore
-            : state.highscore,
         status: state.secondsRemaining === 0 ? "finished" : state.status,
       };
 
     default:
-      throw new Error("Action unkonwn");
+      throw new Error("Action unknown");
   }
 }
 
@@ -99,16 +97,19 @@ export default function App() {
     0
   );
 
-  useEffect(function () {
-    fetch("https://vinayak9669.github.io/React_quiz_api/questions.json")
-      .then((res) => res.json())
+  useEffect(() => {
+    fetch("https://jeevanm2004.github.io/react-quiz-app/data/questions.json")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch questions");
+        return res.json();
+      })
       .then((data) =>
         dispatch({
           type: "dataReceived",
-          payload: data["questions"],
+          payload: data.questions,
         })
       )
-      .catch((err) => dispatch({ type: "dataFailed" }));
+      .catch(() => dispatch({ type: "dataFailed" }));
   }, []);
 
   return (
@@ -122,7 +123,8 @@ export default function App() {
             {status === "error" && <Error />}
             {status === "ready" && (
               <StartScreen numQuestions={numQuestions} dispatch={dispatch} />
-            )}{" "}
+            )}
+
             {status === "active" && (
               <>
                 <Progress
@@ -132,11 +134,13 @@ export default function App() {
                   maxPossiblePoints={maxPossiblePoints}
                   answer={answer}
                 />
+
                 <Question
                   question={questions[index]}
                   dispatch={dispatch}
                   answer={answer}
                 />
+
                 <Footer>
                   <Timer
                     dispatch={dispatch}
@@ -151,6 +155,7 @@ export default function App() {
                 </Footer>
               </>
             )}
+
             {status === "finished" && (
               <FinishScreen
                 points={points}
@@ -165,3 +170,4 @@ export default function App() {
     </div>
   );
 }
+
