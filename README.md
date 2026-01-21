@@ -4,6 +4,12 @@ A dynamic and engaging web application built with React.js that delivers an inte
 
 The app provides instant score updates as you answer questions and displays a comprehensive scorecard upon completion. An automatic submission feature ensures the quiz submits when time runs out.
 
+## 🌐 Live Demo
+
+**[View Live Demo](https://jeevanm2004.github.io/react-quiz-app)**
+
+---
+
 ## ✨ Features
 
 - 🌐 **Fully Responsive Design**: Optimized for all devices and screen sizes
