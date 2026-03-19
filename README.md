@@ -4,6 +4,10 @@ A dynamic and engaging web application built with React.js that delivers an inte
 
 The app provides instant score updates as you answer questions and displays a comprehensive scorecard upon completion. An automatic submission feature ensures the quiz submits when time runs out.
 
+## 🌐 Live Demo
+
+**[Live Demo](https://d1yt5rrewvdcn6.cloudfront.net)**
+
 ## ✨ Features
 
 - 🌐 **Fully Responsive Design**: Optimized for all devices and screen sizes
@@ -13,6 +17,12 @@ The app provides instant score updates as you answer questions and displays a co
 - 📈 **Instant Score Updates**: Get immediate feedback after each question
 - 📜 **Detailed Scorecard**: View comprehensive results at the end
 - ⏱️ **Auto-Submission**: Quiz automatically submits when time expires
+
+## ☁️ Deployment
+
+Deployed on **AWS** using:
+- **S3** — Static file hosting
+- **CloudFront** — CDN for fast global delivery with HTTPS
 
 ## 🛠️ Built With
 
@@ -31,24 +41,20 @@ The app provides instant score updates as you answer questions and displays a co
 
 1. Clone the repository:
 ```bash
-   git clone https://github.com/Jeevanm2004/react-quiz-app.git
+git clone https://github.com/Jeevanm2004/react-quiz-app.git
 ```
-
 2. Navigate to project directory:
 ```bash
-   cd react-quiz-app
+cd react-quiz-app
 ```
-
 3. Install dependencies:
 ```bash
-   npm install
+npm install
 ```
-
 4. Start the development server:
 ```bash
-   npm start
+npm start
 ```
-
 5. Open [http://localhost:3000](http://localhost:3000) to view it in your browser
 
 ## 📚 Key Learning Points
@@ -75,5 +81,4 @@ The application is fully responsive and works seamlessly across:
 This project is open source and available under the [MIT License](LICENSE).
 
 ---
-
 ⭐ If you found this project helpful, please consider giving it a star!
